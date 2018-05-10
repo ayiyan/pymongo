@@ -46,7 +46,7 @@ class mongo(notify):
     def work(self):
         print(self.mongo)
         for key  in self.mongo:
-            if   (str(self.mongo[key]) == "PRIMARY" or str(self.mongo[key]) == "SECONDARY"):
+            if  not  (str(self.mongo[key]) == "PRIMARY" or str(self.mongo[key]) == "SECONDARY"):
                 self.addr = key
                 self.val = str(self.mongo[key])
                 notify.send_msg(self)
